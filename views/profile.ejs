@@ -1,0 +1,32 @@
+<%- include('layout', {
+  title: 'Мій профіль',
+  body: `
+    <div class="card">
+      <h1 class="card-title">Особистий кабінет</h1>
+      <p class="card-subtitle">Персональні дані вашого профілю в Raf Demo Bank.</p>
+
+      <section class="section">
+        <h2 class="section-title">Персональні дані</h2>
+        <p><strong>ПІБ:</strong> ${user.lastName} ${user.firstName} ${user.middleName}</p>
+        <p><strong>Логін:</strong> ${user.username}</p>
+        <p><strong>Роль:</strong> ${user.role === 'admin' ? 'Адміністратор' : 'Користувач'}</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Рахунок</h2>
+        <p><strong>IBAN:</strong> ${user.iban}</p>
+        <p><strong>Баланс:</strong> ${user.balance} <span class="currency">UAH</span></p>
+        <p class="section-note">Усі суми відображаються в гривнях (UAH).</p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">HMAC Secret</h2>
+        <p><code>${user.hmacSecret}</code></p>
+        <p class="section-note">
+          Цей HMAC Secret використовується для підпису API-запитів переказу коштів.
+          Зберігайте його в таємниці — це ключ доступу до операцій по рахунку.
+        </p>
+      </section>
+    </div>
+  `
+}) %>

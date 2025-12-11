@@ -1,0 +1,16 @@
+{
+  "name": "raf-demo-bank",
+  "version": "1.0.0",
+  "description": "Intentionally vulnerable banking-like web application (NoSQL injection, HMAC) for educational security testing.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "ejs": "^3.1.10",
+    "express": "^4.21.2",
+    "express-session": "^1.18.1",
+    "mongoose": "^8.8.3"
+  }
+}

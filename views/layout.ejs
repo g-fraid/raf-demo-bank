@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title><%= title || "Raf Demo Bank" %></title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="header-left">
+      <div class="logo">
+        <div class="logo-cup">
+          <div class="cup-body"></div>
+          <div class="cup-handle"></div>
+          <div class="cup-plate"></div>
+          <div class="cup-steam cup-steam-1"></div>
+          <div class="cup-steam cup-steam-2"></div>
+        </div>
+        <span class="logo-text">Raf Demo Bank</span>
+      </div>
+    </div>
+    <div class="header-right">
+      <% const user = typeof currentUser !== "undefined" ? currentUser : null; %>
+      <% if (user) { %>
+        <span class="user-info">
+          <span class="user-name"><%= user.username %></span>
+        </span>
+        <% if (user.role === "admin") { %>
+          <a href="/dashboard" class="btn-link">Dashboard</a>
+        <% } %>
+        <a href="/profile" class="btn-link">Профіль</a>
+        <a href="/logout" class="btn-link btn-logout">Вихід</a>
+      <% } else { %>
+        <a href="/login" class="btn-link btn-primary-link">Увійти</a>
+      <% } %>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="page-inner">
+      <%- body %>
+    </div>
+  </main>
+</body>
+</html>

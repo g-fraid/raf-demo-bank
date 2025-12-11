@@ -1,0 +1,38 @@
+<%- include('layout', {
+  title: 'Admin Dashboard',
+  body: `
+    <div class="card card-dashboard">
+      <h1 class="card-title">Admin Dashboard</h1>
+      <p class="card-subtitle">
+        Огляд усіх користувачів Raf Demo Bank. Паролі не відображаються з міркувань безпеки.
+      </p>
+
+      <div class="table-wrapper">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Логін</th>
+              <th>ПІБ</th>
+              <th>Роль</th>
+              <th>IBAN</th>
+              <th>Баланс (UAH)</th>
+              <th>HMAC Secret</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${users.map(u => `
+              <tr>
+                <td><code>${u.username}</code></td>
+                <td>${u.lastName} ${u.firstName} ${u.middleName}</td>
+                <td>${u.role === 'admin' ? 'Адміністратор' : 'Користувач'}</td>
+                <td><code>${u.iban}</code></td>
+                <td>${u.balance}</td>
+                <td><code>${u.hmacSecret}</code></td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `
+}) %>

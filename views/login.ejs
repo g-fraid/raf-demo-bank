@@ -1,0 +1,25 @@
+<%- include('layout', {
+  title: 'Вхід до Raf Demo Bank',
+  body: `
+    <div class="card card-auth">
+      <h1 class="card-title">Вхід до Raf Demo Bank</h1>
+      <p class="card-subtitle">Будь ласка, авторизуйтеся, щоб перейти до свого рахунку.</p>
+
+      ${error ? `<div class="alert alert-error">${error}</div>` : ''}
+
+      <form method="POST" action="/login" class="form">
+        <div class="form-group">
+          <label class="form-label">Логін</label>
+          <input type="text" name="username" class="form-input" required placeholder="наприклад, ipetrenko" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Пароль</label>
+          <input type="password" name="password" class="form-input" required placeholder="Ваш пароль" />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full">Увійти</button>
+      </form>
+    </div>
+  `
+}) %>
